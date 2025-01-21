@@ -1,3 +1,5 @@
+import { Product, Store } from "./definitions";
+
 const BASE_URL = process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL;
 
 
@@ -29,4 +31,15 @@ export async function fetchStores() {
      } 
 
      return response.json();
+}
+
+
+export async function fetchStoresAndProducts(): Promise<{ stores: Store[]; products: Product[] }> {
+     const storeResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/stores`);
+     const stores: Store[] = await storeResponse.json();
+
+     const productResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products`);
+     const products: Product[] = await productResponse.json();
+
+     return { stores, products };
 }

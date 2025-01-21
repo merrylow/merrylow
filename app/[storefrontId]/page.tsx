@@ -1,6 +1,6 @@
 
 const Stores = async () => {
-     const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/menus`);
+     const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/stores`);
      const stores = await response.json(); 
 
      return (
