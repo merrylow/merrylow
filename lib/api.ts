@@ -43,3 +43,4 @@ export async function fetchStoresAndProducts(): Promise<{ stores: Store[]; produ
 
      return { stores, products };
 }
+

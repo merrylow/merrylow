@@ -24,7 +24,7 @@ export default async function StorefrontPreview() {
                                    product.store?.shop_name?.trim().toLowerCase() ===
                                    store.name?.trim().toLowerCase()
                          );
-                         // console.log(storeProducts.length);
+
 
                          // Filter out duplicate images based on URL
                          const uniqueImages = storeProducts.reduce((unique: any[], product: any) => {
