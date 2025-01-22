@@ -2,7 +2,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  // CarouselItem,
 } from "@/components/ui/homepage/carousel"
 import Autoplay from "embla-carousel-autoplay"
 
@@ -15,7 +14,7 @@ export default async function Home() {
   const images = [
     { src: "/slider-images/pic1.jpg", alt: "Image 1" },
     { src: "/slider-images/pic2.jpg", alt: "Image 2" },
-    { src: "/slider-images/pic3.jpg", alt: "Image 3" },
+    { src: "/slider-images/pic3.jpeg", alt: "Image 3" },
   ];
 
 
@@ -37,13 +36,8 @@ export default async function Home() {
           </CarouselContent>
           </Carousel> */}
 
-        <Carousel images={images} imgHeight="h-64" className="border border-red-700"> 
-          <CarouselContent>
-            {images.map((image, index: number) => (
-              <CarouselItem key={index}>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
+        <Carousel images={images} imgHeight="h-[100%]" carouselHeight="h-[300px]" className="border border-red-700"> 
+          <CarouselContent />
         </Carousel>
 
       </section>

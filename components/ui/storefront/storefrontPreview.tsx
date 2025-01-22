@@ -4,11 +4,10 @@ import {
      Carousel,
      CarouselContent,
      CarouselItem,
-     // CarouselNext,
-     // CarouselPrevious,
 } from "@/components/ui/homepage/carousel"
 // import Autoplay from "embla-carousel-autoplay"
 // import Link from "next/link";
+import Image from "next/image";
 
 
 
@@ -39,7 +38,7 @@ export default async function StorefrontPreview() {
                          }, []);
 
                          return (
-                              <li key={index} className="border-2 border-red-600 h-48 flex flex-col">
+                              <li key={index} className="h-48 flex flex-col spacing-y-36">
                                         <section>
                                              {/* <Link href={`/stores/${store.slug}`}> */}
                                              <a>{store.name}</a>
@@ -48,8 +47,8 @@ export default async function StorefrontPreview() {
 
                                         <section className="carousel">
                                              <div className="carousel-container">
-                                                  <Carousel images={uniqueImages} imgHeight='h-[65%] w-[60%]' plugins={[]}> 
-                                                       <CarouselContent className="border-2 border-yellow-400" />
+                                                  <Carousel images={uniqueImages} imgHeight='h-full' carouselHeight="w-[35%] h-[200px]" plugins={[]}> 
+                                                       <CarouselContent className="" />
                                                   </Carousel>
                                              </div>
                                         </section>
