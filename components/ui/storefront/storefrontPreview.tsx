@@ -8,6 +8,7 @@ import {
 // import Autoplay from "embla-carousel-autoplay"
 // import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 
 
@@ -19,7 +20,7 @@ export default async function StorefrontPreview() {
           <section className="h-full">
                <ul className="w-full h-full space-y-10">
                     {stores.map(async (store, index) => {
-                         const storeProducts = products.filter(
+                         const menuItems = products.filter(
                               (product) =>
                                    product.store?.shop_name?.trim().toLowerCase() ===
                                    store.name?.trim().toLowerCase()
@@ -27,7 +28,7 @@ export default async function StorefrontPreview() {
 
 
                          // Filter out duplicate images based on URL
-                         const uniqueImages = storeProducts.reduce((unique: any[], product: any) => {
+                         const uniqueImages = menuItems.reduce((unique: any[], product: any) => {
                               const imageUrl = product.images[0]?.src; // Get the image URL of the product
 
                               if (imageUrl && !unique.some(item => item.src === imageUrl)) {
@@ -39,6 +40,7 @@ export default async function StorefrontPreview() {
 
                          return (
                               <li key={index} className="h-48 flex flex-col spacing-y-36">
+                                   <Link href={`/storefront/${store.id}`} className="w-full h-full">
                                         <section>
                                              {/* <Link href={`/stores/${store.slug}`}> */}
                                              <a>{store.name}</a>
@@ -52,6 +54,7 @@ export default async function StorefrontPreview() {
                                                   </Carousel>
                                              </div>
                                         </section>
+                                   </Link>
                               
                               </li>
                          );

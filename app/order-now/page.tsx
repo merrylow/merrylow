@@ -7,16 +7,16 @@ export default async function OrderNow() {
      
 
      return (
-          <div className="mt-5 text-center">
-               <section className="flex flex-col max-w-sm mx-auto items-center">
+          <div className="min-w-md w-[95%] mt-5 mx-auto">
+               <section className="flex flex-col min-w-sm w-[90%] h-auto mx-auto items-center space-y-1">
                     {
                          stores.map((store) => (
-                              <Link href='#'>{store.name}</Link>
+                              <Link href='#' className="">{store.name}</Link>
                          ))
                     }
                </section>
 
-               <section className="mt-10">
+               <section className="w-[90%] min-w-sm mx-auto mt-10">
                     {/* <p>Order now</p> */}
                     <Storefront />
                </section>

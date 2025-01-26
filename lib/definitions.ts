@@ -3,6 +3,7 @@ export interface Store {
      name: string;
      id: number;
      slug: string;
+     products: [];
 }
 
 export interface Product {
