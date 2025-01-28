@@ -22,7 +22,7 @@ export default async function OrderNow({ stores, products }: { stores: Store[], 
           <section>
                <ul className="space-y-16">
                     {
-                         stores.map(async (store, index) => {
+                         stores.map(async (store) => {
                               const menuItems = products.filter(
                                    (product) =>
                                         product.store?.shop_name?.trim().toLowerCase() ===
@@ -30,32 +30,30 @@ export default async function OrderNow({ stores, products }: { stores: Store[], 
                               );
                               
                               return (
-                                   <li key={index}>
+                                   <li key={store.id}>
                                         <div>
-                                             <Link href=''>
+                                             <Link href={`/storefront/${store.id}`}>
                                                   {store.name}
                                              </Link>
                                         </div>
                                         {/* menu */}
                                         <div>
-                                             <Link href=''>
-                                                  {
-                                                       menuItems.map((menuItem) => (
-                                                            <div>
-                                                                 <section className="w-[40%] h-[40%]">
-                                                                      <Image src={menuItem.images[0].src} alt={menuItem.name} width={64} height={24} />
-                                                                 </section>
+                                             {
+                                                  menuItems.map((menuItem) => (
+                                                       <div>
+                                                            <section className="w-[40%] h-[40%]">
+                                                                 <Image src={menuItem.images[0].src} alt={menuItem.name} width={64} height={24} />
+                                                            </section>
 
-                                                                 <section>
-                                                                      <p>{menuItem.name}</p>
-                                                                      <p>c{menuItem.price}</p>
-                                                                      <Button onClick={() => handleAddToCart(menuItem)}>Add to cart</Button>
-                                                                      
-                                                                 </section>
-                                                            </div>
-                                                       ))
-                                                  }
-                                             </Link>
+                                                            <section>
+                                                                 <p>{menuItem.name}</p>
+                                                                 <p>c{menuItem.price}</p>
+                                                                 <Button onClick={() => handleAddToCart(menuItem)}>Add to cart</Button>
+                                                                 
+                                                            </section>
+                                                       </div>
+                                                  ))
+                                             }
                                         </div>
                                    </li>
                               )

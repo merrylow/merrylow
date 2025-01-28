@@ -32,23 +32,23 @@ export default async function StorefrontPage({ params }: { params: { id: string 
 
 
      return (
-          <div className="p-4">
+          <section className="p-4">
                <h1 className="text-3xl font-bold mb-4">{store.name}</h1>
                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {
                          menuItems.map((product) => {
                               return (
-                                   <>
+                                   <div key={product.id}>
                                         <p>{product.name}</p>
                                         <Image src={product.images[0].src} width={120} height={20} alt={product.name} />
                                         <StorefrontButton product={product} />
-                                   </>
+                                   </div>
                               )
                          })
                     }
                     {/* <Storefront stores={stores} products={products} /> */}
                </div>
-          </div>
+          </section>
      );
 }
 

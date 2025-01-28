@@ -19,7 +19,7 @@ export default async function StorefrontPreview() {
      return (
           <section className="h-full">
                <ul className="w-full h-full space-y-10">
-                    {stores.map(async (store, index) => {
+                    {stores.map(async (store) => {
                          const menuItems = products.filter(
                               (product) =>
                                    product.store?.shop_name?.trim().toLowerCase() ===
@@ -39,7 +39,7 @@ export default async function StorefrontPreview() {
                          }, []);
 
                          return (
-                              <li key={index} className="h-48 flex flex-col spacing-y-36">
+                              <li key={store.id} className="h-48 flex flex-col spacing-y-36">
                                    <Link href={`/storefront/${store.id}`} className="w-full h-full">
                                         <section>
                                              <a>{store.name}</a>
