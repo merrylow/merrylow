@@ -4,10 +4,7 @@ import {
   CarouselItem,
 } from "@/components/ui/homepage/carousel"
 import Autoplay from "embla-carousel-autoplay"
-
-import StorefrontPreview from "@/components/ui/storefront/storefrontPreview"
-import Image from "next/image";
-import { HomeIcon } from "@heroicons/react/20/solid";
+import StorefrontPreview from "@/components/ui/homepage/storefrontPreview"
 
 
 
