@@ -3,8 +3,6 @@ import { fetchStoresAndProducts } from "@/lib/api";
 import { Store, Product, CartItem } from "@/lib/definitions";
 import { useCartContext } from "@/lib/contexts/CartContext";
 import Image from "next/image";
-import { handleAddToCart } from "@/lib/utils";
-// import { Button } from "@/components/ui/button";
 import StorefrontButton from "@/components/ui/storefront/button";
 
 
