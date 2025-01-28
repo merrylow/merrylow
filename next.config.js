@@ -37,7 +37,7 @@ const nextConfig = {
     WC_CONSUMER_KEY: process.env.WC_CONSUMER_KEY,
     WC_CONSUMER_SECRET: process.env.WC_CONSUMER_SECRET,
   },
-  eslink: {
+  eslint: {
     ignoreDuringBuilds: true,
   },
   images: {
