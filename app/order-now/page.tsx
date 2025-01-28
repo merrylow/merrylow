@@ -10,8 +10,8 @@ export default async function OrderNowPage() {
           <div className="min-w-md w-[95%] mt-5 mx-auto">
                <section className="flex flex-col min-w-sm w-[90%] h-auto mx-auto items-center space-y-1">
                     {
-                         stores.map((store) => (
-                              <Link href='#' className="">{store.name}</Link>
+                         stores.map((store, index) => (
+                              <Link href='#' key={index}>{store.name}</Link>
                          ))
                     }
                </section>

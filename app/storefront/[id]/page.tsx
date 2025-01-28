@@ -54,7 +54,14 @@ export default async function StorefrontPage({ params }: { params: { id: string 
 
 
 export async function generateStaticParams() {
-     const { stores } = await fetchStoresAndProducts();
+     // const { stores } = await fetchStoresAndProducts();
+     // const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+     const BASE_URL = process.env.NODE_ENV === "production"
+          ? "https://merrylow.vercel.app"
+          : "http://localhost:3000";
+
+     const response = await fetch(`${BASE_URL}/api/stores`);
+     const stores = await response.json();
 
      if (!stores || !Array.isArray(stores)) {
           throw new Error("Unable to fetch stores for static params.");
