@@ -1,9 +1,9 @@
-import Storefront from "@/components/ui/storefront/storefront";
+import OrderNow from "@/components/ui/order-now/orderNow";
 import Link from "next/link";
 import { fetchStoresAndProducts } from "@/lib/api";
 
-export default async function OrderNow() {
-     const { stores } = await fetchStoresAndProducts();
+export default async function OrderNowPage() {
+     const { stores, products } = await fetchStoresAndProducts();
      
 
      return (
@@ -18,7 +18,7 @@ export default async function OrderNow() {
 
                <section className="w-[90%] min-w-sm mx-auto mt-10">
                     {/* <p>Order now</p> */}
-                    <Storefront />
+                    <OrderNow stores={stores} products={products} />
                </section>
           </div>
      );

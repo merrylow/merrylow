@@ -1,11 +1,16 @@
-import { fetchStoresAndProducts } from "@/lib/api"; 
-import { Store } from "@/lib/definitions";
-import Image from "next/image";
 
-export default async function Storefront({ params }: { params: { id: string } }) {
+import { fetchStoresAndProducts } from "@/lib/api"; 
+import { Store, Product, CartItem } from "@/lib/definitions";
+import { useCartContext } from "@/lib/contexts/CartContext";
+import Image from "next/image";
+import { handleAddToCart } from "@/lib/utils";
+// import { Button } from "@/components/ui/button";
+import StorefrontButton from "@/components/ui/storefront/button";
+
+
+export default async function StorefrontPage({ params }: { params: { id: string } }) {
      // Fetch stores and products
      const { stores, products } = await fetchStoresAndProducts();
-
 
      if (!stores || !Array.isArray(stores)) {
           return <div>Error: Unable to fetch stores.</div>;
@@ -21,10 +26,11 @@ export default async function Storefront({ params }: { params: { id: string } })
 
      // drafts a menu
      const menuItems = products.filter(
-     (product) =>
+     (product: Product) =>
           product.store?.shop_name?.trim().toLowerCase() ===
           store.name?.trim().toLowerCase()
      );
+
 
 
      return (
@@ -33,19 +39,21 @@ export default async function Storefront({ params }: { params: { id: string } })
                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {
                          menuItems.map((product) => {
-
                               return (
                                    <>
                                         <p>{product.name}</p>
                                         <Image src={product.images[0].src} width={120} height={20} alt={product.name} />
+                                        <StorefrontButton product={product} />
                                    </>
                               )
                          })
                     }
+                    {/* <Storefront stores={stores} products={products} /> */}
                </div>
           </div>
      );
 }
+
 
 export async function generateStaticParams() {
      const { stores } = await fetchStoresAndProducts();

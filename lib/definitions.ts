@@ -15,3 +15,47 @@ export interface Product {
      alt: string;
      stock_status: string;
 }
+
+
+
+export interface CartItem extends Product {
+     // id: number;
+     // product: Product;
+     'order-status': string;
+     // images: { src: string }[];
+     // store: { shop_name: string };
+     // price: string;
+     // alt: string;
+};
+
+export type CartContextType = {
+     cart: CartItem[];
+     addToCart: (cartItem: CartItem) => void;
+     removeFromCart: (id: number) => void;
+};
+
+
+
+export interface Order {
+     name:string;
+     id: number;
+     images: { src: string }[];
+     store: { shop_name: string };
+     price: string;
+     status: string;
+     currency: string;
+     total: string;
+     total_tax: string;
+     customer_id: string;
+     alt: string;
+}
+
+
+// export interface CartItem {
+//      name:string;
+//      id: number;
+//      images: { src: string }[];
+//      store: { shop_name: string };
+//      price: string;
+//      alt: string;
+// }

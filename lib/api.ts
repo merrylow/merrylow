@@ -34,7 +34,10 @@ export async function fetchStores() {
 }
 
 
-export async function fetchStoresAndProducts(): Promise<{ stores: Store[]; products: Product[] }> {
+export async function fetchStoresAndProducts(): Promise<{ 
+     stores: Store[]; 
+     products: Product[] ;
+}> {
      const storeResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/stores`);
      const stores: Store[] = await storeResponse.json();
 
@@ -52,21 +55,3 @@ export async function fetchStorefront(storeId: any) {
      const data = await response.json();
      return data;
 }
-
-
-// export async function getStorefrontId(storeId: number) {
-//      const { stores } = await  fetchStoresAndProducts();
-//           stores.map((store: Store) => {
-//                storeId =  store.id;
-//           })
-//           return storeId;
-// }
-// getStorefrontId(23);
-
-
-// export async function fetchStoreId(id: number) {
-//      const { stores } = fetchStoresAndProducts();
-//      stores.map((store) => {
-//           const response = await fetch(`/api/stores`);
-//      })
-// }
