@@ -1,25 +1,20 @@
 import { Product, Store } from "./definitions";
 
-const BASE_URL = process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL || "http://localhost:3000";
+export const BASE_URL = process.env.NODE_ENV === "production"
+     ? "https://merrylow.vercel.app"
+     : "http://localhost:3000"
 
-
-export const API = {
-     PRODUCTS: `${BASE_URL}/wp-json/wp/v2/products`,
-     POSTS: `${BASE_URL}/wp-json/wp/v2/posts`,
-     ORDERS: `${BASE_URL}/wp-json/wp/v2/orders`, 
-     MENUS: `${BASE_URL}/wp-json/wp/v2/menus`,
-};
 
 
 export async function fetchStoresAndProducts(): Promise<{ 
      stores: Store[]; 
      products: Product[] ;
 }> {
-     const storeResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/stores`);
+     const storeResponse = await fetch(`${BASE_URL}/api/stores`);
      const stores: Store[] = await storeResponse.json();
 
 
-     const productResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products`);
+     const productResponse = await fetch(`${BASE_URL}/api/products`);
      const products: Product[] = await productResponse.json();
 
      return { stores, products };
