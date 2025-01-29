@@ -19,11 +19,3 @@ export async function fetchStoresAndProducts(): Promise<{
 
      return { stores, products };
 }
-
-
-export async function fetchStorefront(storeId: any) {
-     const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/stores/${storeId}`);
-
-     const data = await response.json();
-     return data;
-}
