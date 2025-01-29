@@ -60,16 +60,22 @@ export async function generateStaticParams() {
           ? "https://merrylow.vercel.app"
           : "http://localhost:3000";
 
-     const response = await fetch(`${BASE_URL}/api/stores`);
-     const stores = await response.json();
-
-     if (!stores || !Array.isArray(stores)) {
-          throw new Error("Unable to fetch stores for static params.");
+     try {
+          const response = await fetch(`${BASE_URL}/api/stores`);
+          const stores = await response.json();
+     
+          if (!stores || !Array.isArray(stores)) {
+               throw new Error("Unable to fetch stores for static params.");
+          }
+     
+          const params =  stores.map((store) => ({
+               id: store.id.toString(),
+          }));
+     
+          return params;
+     } catch(error) {
+          console.error("Failed to fetch static params:", error);
+          return [];
      }
 
-     const params =  stores.map((store) => ({
-          id: store.id.toString(),
-     }));
-
-     return params;
 }
