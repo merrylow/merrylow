@@ -19,13 +19,7 @@ export interface Product {
 
 
 export interface CartItem extends Product {
-     // id: number;
-     // product: Product;
      'order-status': string;
-     // images: { src: string }[];
-     // store: { shop_name: string };
-     // price: string;
-     // alt: string;
 };
 
 export type CartContextType = {
@@ -49,13 +43,3 @@ export interface Order {
      customer_id: string;
      alt: string;
 }
-
-
-// export interface CartItem {
-//      name:string;
-//      id: number;
-//      images: { src: string }[];
-//      store: { shop_name: string };
-//      price: string;
-//      alt: string;
-// }

@@ -1,5 +1,5 @@
-export default function Page() {
+export default function MyAccountPage() {
      return (
-          <div>My account Page</div>
+          <div>My account page</div>
      );
 }

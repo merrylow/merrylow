@@ -23,7 +23,7 @@ const BottomNavigation = () => {
                     </div>
                     <div className="ml-2">Cart</div>
                </Link>
-               <Link href="/account" className="text-gray-500 hover:text-blue-500">
+               <Link href="/my-account" className="text-gray-500 hover:text-blue-500">
                     <div>
                          {/* <UserCircleIcon width={150} height={30} /> */}
                     </div>
