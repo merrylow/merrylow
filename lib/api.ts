@@ -10,12 +10,17 @@ export async function fetchStoresAndProducts(): Promise<{
      stores: Store[]; 
      products: Product[] ;
 }> {
-     const storeResponse = await fetch(`${BASE_URL}/api/stores`);
-     const stores: Store[] = await storeResponse.json();
-
-
-     const productResponse = await fetch(`${BASE_URL}/api/products`);
-     const products: Product[] = await productResponse.json();
-
-     return { stores, products };
+     try {
+          const storeResponse = await fetch(`${BASE_URL}/api/stores`);
+          const stores: Store[] = await storeResponse.json();
+     
+     
+          const productResponse = await fetch(`${BASE_URL}/api/products`);
+          const products: Product[] = await productResponse.json();
+     
+          return { stores, products };
+     } catch(error) {
+          console.error("Error fetching stores and products:", error);
+          return { stores: [], products: [] }; 
+     }
 }

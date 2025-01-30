@@ -42,7 +42,7 @@ export default async function StorefrontPreview() {
                               <li key={store.id} className="h-48 flex flex-col spacing-y-36">
                                    <Link href={`/storefront/${store.id}`} className="w-full h-full">
                                         <section>
-                                             <a>{store.name}</a>
+                                             <p>{store.name}</p>
                                         </section>
 
                                         <section className="carousel">
