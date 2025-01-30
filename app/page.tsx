@@ -4,15 +4,15 @@ import {
   CarouselItem,
 } from "@/components/ui/homepage/carousel"
 import Autoplay from "embla-carousel-autoplay"
-import StorefrontPreview from "@/components/ui/homepage/storefrontPreview"
+import StorefrontPreviews from "@/components/ui/homepage/storefrontPreview"
 
 
 
 export default async function Home() {
   const images = [
-    { src: "/slider-images/pic1.jpg", alt: "Image 1" },
-    { src: "/slider-images/pic2.jpg", alt: "Image 2" },
-    { src: "/slider-images/pic3.jpeg", alt: "Image 3" },
+    { src: '/slider-images/5-cedis-per-delivery.png', alt: "Image 1" },
+    { src: '/slider-images/Free-Delivery.png', alt: "Image 2" },
+    { src: '/slider-images/How-to-order.png', alt: "Image 3" },
   ];
 
 
@@ -45,7 +45,7 @@ export default async function Home() {
 
         {/* storefront previews */}
         <section className="min-w-[96%] w-[96%] mx-auto h-[60%]">
-          <StorefrontPreview />
+          <StorefrontPreviews />
         </section>
         
       </div>

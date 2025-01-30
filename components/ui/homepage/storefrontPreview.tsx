@@ -13,8 +13,9 @@ import Link from "next/link";
 
 
 
-export default async function StorefrontPreview() {
+export default async function StorefrontPreviews() {
      const { stores, products } = await fetchStoresAndProducts();
+     // console.log(stores);
 
      return (
           <section className="h-full">
