@@ -6,6 +6,7 @@ import AddToCartButton from "@/components/ui/AddToCartButton";
 
 
 
+
 export default async function StorefrontPage({ params }: { params: Promise<{ id: string }> }) {
      // const storeId = parseInt(params.id, 10);
      const storeId = Number((await params).id);
