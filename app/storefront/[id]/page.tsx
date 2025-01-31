@@ -37,17 +37,40 @@ export default async function StorefrontPage({ params }: { params: Promise<{ id:
 
 
      return (
-          <section className="p-4">
-               <h1 className="text-3xl font-bold mb-4">{store.name}</h1>
-               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <section className="p-4 mb-4 mt-4">
+               <div>
+                    <h1 className="text-3xl text-center font-bold">{store.name}</h1>
+                    <div className="w-8 h-[1.6px] bg-[#a12fda] mt-1 mx-auto"></div>
+               </div>
+
+               <div className="w-[80%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 mb-20 mx-auto">
                     {
                          menuItems.map((product) => {
                               return (
                                    <div key={product.id}>
-                                        <p>{product.name}</p>
-                                        <Image src={product.images[0].src} width={120} height={20} alt={product.name} />
-                                        {/* <StorefrontButton product={product} /> */}
-                                        <AddToCartButton product={product} />
+                                        <div className="space-y-6">
+                                             {menuItems.map((menuItem) => (
+                                                  <div key={menuItem.id} className="flex items-center h-28 space-x-3">
+                                                       <section className="w-[35%] h-28 flex items-center">
+                                                            <Image 
+                                                            src={menuItem.images[0].src} 
+                                                            alt={menuItem.name} 
+                                                            width={300}
+                                                            height={300} 
+                                                            style={{width: '100%', height: '100%'}}
+                                                            className="object-cover rounded-[6px]" />
+                                                       </section>
+
+                                                       <section className="h-[95%] flex flex-col justify-center space-y-4">
+                                                            <div>
+                                                                 <p className="text-[14.5px]">{menuItem.name}</p>
+                                                                 <p>c{menuItem.price}.00</p>
+                                                            </div>
+                                                            <AddToCartButton product={menuItem} />
+                                                       </section>
+                                                  </div>
+                                             ))}
+                                        </div>
                                    </div>
                               )
                          })

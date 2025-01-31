@@ -3,12 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { HomeIcon, ShoppingCartIcon, UserCircleIcon, ShoppingBagIcon } from "@heroicons/react/16/solid";
+import { IoFastFood } from "react-icons/io5";
+
 
 const BottomNavigation = () => {
      const pathname = usePathname(); // Get current URL path
 
      return (
-          <section className="fixed bottom-0 left-0 w-full h-[13%] flex items-center justify-center bg-[#16191e] border-t shadow-lg text-[#eaeaea]">
+          <section className="fixed bottom-0 left-0 w-full h-[4.5em] flex items-center justify-center bg-[#16191e] shadow-lg text-[#eaeaea]">
                <div className="w-[94%] flex justify-between items-center px-4 py-2">
                     {/* Home */}
                     <Link
@@ -28,7 +30,7 @@ const BottomNavigation = () => {
                               pathname === "/order-now" ? "text-[#a12fda] font-bold" : "text-gray-500"
                          }`}
                     >
-                         <ShoppingBagIcon className="w-5" />
+                         <IoFastFood className='w-5' />
                          <span>Order Now</span>
                     </Link>
 
@@ -39,7 +41,7 @@ const BottomNavigation = () => {
                               pathname === "/cart" ? "text-[#a12fda] font-bold" : "text-gray-500"
                          }`}
                     >
-                         <ShoppingCartIcon className="w-5" />
+                         <ShoppingBagIcon className="w-5" />
                          <span>Cart</span>
                     </Link>
 

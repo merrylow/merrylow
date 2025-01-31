@@ -29,21 +29,21 @@ export default function Navbar() {
           <nav className="h-16 flex justify-between items-center px-4 bg-[#16191e] text-[#eaeaea] relative">
                {/* Location */}
                <section className="flex items-center">
-                    <MapPinIcon width={24} className="text-red-700" />
+                    <MapPinIcon width={24} className="text-red-500" />
                     <h2 className="text-sm">University of Ghana</h2>
                </section>
 
                {/* Hamburger Icon */}
                <section className="md:hidden flex">
                     <button title="hamburger-button" type="button" onClick={() => setIsOpen(true)}>
-                         <Bars3Icon className="text-[#b532f7]" width={37} />
+                         <Bars3Icon className="text-[#b532f7]" width={36} />
                     </button>
                </section>
 
                {/* Mobile Menu - Slides Down from Top */}
                <section
                     ref={menuRef} // Attach ref here
-                    className={`absolute top-0 w-[96%] h-[70vh] bg-[#222] text-white flex flex-col gap-4 p-4 rounded-lg z-10
+                    className={`absolute top-0 left-0 w-full h-[70vh] bg-[#222] text-white flex flex-col p-4 rounded-lg z-10
                     transition-all duration-500 ease-in-out transform
                     ${isOpen ? "translate-y-0 opacity-95 pointer-events-auto" : "-translate-y-full opacity-0 pointer-events-none"}`}
                >

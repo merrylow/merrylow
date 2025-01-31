@@ -1,5 +1,4 @@
 "use server";
-
 import { fetchStoresAndProducts } from "@/lib/api";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/homepage/carousel";
 import Image from "next/image";
@@ -9,11 +8,12 @@ import { ChevronRightIcon } from "@heroicons/react/16/solid";
 
 export default async function StorefrontPreviews() {
      const { stores, products } = await fetchStoresAndProducts();
+     // console.log(stores);
 
      return (
           <section className="w-full h-full px-4 mb-36">
                <ul className="w-full space-y-10">
-                    {stores.map(async (store) => {
+                    {stores.map((store) => {
                          const menuItems = products.filter((product) => {
                               const normalizedProductName = product.store?.shop_name?.trim().toLowerCase();
                               const normalizedStoreName = store.name?.trim().toLowerCase();
@@ -45,20 +45,18 @@ export default async function StorefrontPreviews() {
                                         </section>
 
                                         {/* Carousel Wrapper */}
-                                        <section className="mt-3 h-64 overflow-hidden border">
-                                             <Carousel images={uniqueImages} className="w-full max-w-full overflow-hidden border border-green-600">
-                                                  <CarouselContent className="flex gap-4 overflow-x-auto scrollbar-hide">
+                                        <section className="mt-3 h-64 overflow-hidden">
+                                             <Carousel images={uniqueImages} className="w-full max-w-full overflow-hidden">
+                                                  <CarouselContent className="flex gap-2 overflow-x-auto scrollbar-hide flex-nowrap">
                                                        {uniqueImages.map((image) => (
                                                             <CarouselItem 
                                                                  key={image.src} 
-                                                                 className="relative flex-[0_0_33.33%] h-48 md:h-64 border">
+                                                                 className="basis-1/3 h-48 md:h-64">
                                                                  <Image
                                                                       src={image.src}
                                                                       alt={image.name}
-                                                                      className="w-full h-full object-cover rounded-lg border border-red-600"
-                                                                      width={100}
-                                                                      height={100}
-                                                                 />
+                                                                      className="w-full h-full object-cover rounded-lg"
+                                                                 /> 
                                                             </CarouselItem>
                                                        ))}
                                                   </CarouselContent>
