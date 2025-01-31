@@ -24,7 +24,7 @@ export default function CartPage() {
 
 
      return (
-     <div className="p-4">
+     <div className="p-4 mb-24">
           <h1 className="text-2xl font-bold mb-4">Cart</h1>
                <ul>
                     {cart.map((cartItem) => (
