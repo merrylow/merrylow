@@ -28,10 +28,10 @@ export default async function StorefrontPage({ params }: { params: Promise<{ id:
 
      // drafts a menu
      const menuItems = products.filter(
-     (product: Product) =>
-          product.store?.shop_name?.trim().toLowerCase() ===
-          store.name?.trim().toLowerCase()
-     );
+          (product) =>
+               product.store?.shop_name?.trim().toLowerCase() ===
+               store.name?.trim().toLowerCase()
+          );
 
 
 

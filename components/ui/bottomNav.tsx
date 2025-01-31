@@ -21,7 +21,7 @@ const BottomNavigation = () => {
                               pathname === "/" ? "text-[#a12fda] font-bold" : "text-gray-500"
                          }`}
                     >
-                         <AiFillHome className="w-6" />
+                         <AiFillHome className="w-6 h-6" />
                          <span>Home</span>
                     </Link>
 

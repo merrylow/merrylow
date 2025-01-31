@@ -54,7 +54,7 @@ export default function Navbar() {
                {/* Mobile Menu - Slides Down from Top */}
                <section
                     ref={menuRef} // Attach ref here
-                    className={`absolute top-0 left-0 w-full h-[70vh] bg-[#222] text-white flex flex-col p-4 rounded-lg z-10
+                    className={`absolute top-0 left-0 w-full h-[70vh] bg-[#222] text-white flex flex-col p-4 pt-7 rounded-lg z-10
                     transition-all duration-500 ease-in-out transform
                     ${isOpen ? "translate-y-0 opacity-95 pointer-events-auto" : "-translate-y-full opacity-0 pointer-events-none"}`}
                >
@@ -66,7 +66,7 @@ export default function Navbar() {
                     </div>
 
                     {/* Menu Links */}
-                    <div className="w-[60%] h-[80%] mx-auto flex flex-col items-center justify-between">
+                    <div className="w-[60%] h-[70%] mx-auto flex flex-col items-center justify-between mt-10">
                          <Link href="/" className="hover:text-[#b532f7]">Home</Link>
                          <Link href="/order-now" className="hover:text-[#b532f7]">Order Now</Link>
                          <Link href="/cart" className="hover:text-[#b532f7]">Cart</Link>
