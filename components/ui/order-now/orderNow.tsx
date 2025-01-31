@@ -1,8 +1,10 @@
 import { Store, Product } from "@/lib/definitions";
 import Image from "next/image";
 import Link from "next/link";
-import AddToCartButton from "../AddToCartButton"; // Import Client Component
+import AddToCartButton from "../storefront/addToCartButton"; // Import Client Component
 import FuzzySet from "fuzzyset";
+import { Button } from "../button";
+import StorefrontButton from "../storefront/addToCartButton";
 
 
 export default async function OrderNow({ stores, products }: { stores: Store[], products: Product[] }) {
@@ -62,6 +64,7 @@ export default async function OrderNow({ stores, products }: { stores: Store[], 
                                                             <p className="text-[14.5px]">{menuItem.name}</p>
                                                             <p>c{menuItem.price}.00</p>
                                                        </div>
+                                                       {/* <AddToCartButton product={menuItem} /> */}
                                                        <AddToCartButton product={menuItem} />
                                                   </section>
                                              </div>

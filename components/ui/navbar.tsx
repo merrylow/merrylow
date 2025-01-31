@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { Bars3Icon, MapPinIcon, XMarkIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 
@@ -7,6 +8,7 @@ import Link from "next/link";
 export default function Navbar() {
      const [isOpen, setIsOpen] = useState(false);
      const menuRef = useRef<HTMLDivElement | null>(null); // Reference for the menu
+     const pathname = usePathname();
 
      // Close menu when clicking outside
      useEffect(() => {
@@ -24,6 +26,15 @@ export default function Navbar() {
                document.removeEventListener("mousedown", handleClickOutside);
           };
      }, [isOpen]);
+
+
+     // Closes menu & scroll to top when a route changes
+     useEffect(() => {
+          setIsOpen(false);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+     }, [pathname]); // Runs whenever the pathname changes
+
+
 
      return (
           <nav className="h-16 flex justify-between items-center px-4 bg-[#16191e] text-[#eaeaea] relative">

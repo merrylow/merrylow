@@ -3,7 +3,7 @@
 import { useCartContext } from "@/lib/contexts/CartContext";
 import { Product, CartItem } from "@/lib/definitions";
 
-export default function StorefrontButton({ product }: { product: Product }) {
+export default function AddToCartButton({ product }: { product: Product }) {
      const { addToCart } = useCartContext();
 
      const handleAddToCart = () => {

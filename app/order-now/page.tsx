@@ -2,6 +2,7 @@ import OrderNow from "@/components/ui/order-now/orderNow";
 import Link from "next/link";
 import { fetchStoresAndProducts } from "@/lib/api";
 
+
 export default async function OrderNowPage() {
      const { stores, products } = await fetchStoresAndProducts();
      

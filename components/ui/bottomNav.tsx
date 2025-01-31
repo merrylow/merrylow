@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { HomeIcon, ShoppingCartIcon, UserCircleIcon, ShoppingBagIcon } from "@heroicons/react/16/solid";
 import { IoFastFood } from "react-icons/io5";
+import { AiFillHome } from "react-icons/ai";
+import { FaCartShopping } from "react-icons/fa6";
+import { FaUserCircle } from "react-icons/fa";
 
 
 const BottomNavigation = () => {
@@ -19,7 +21,7 @@ const BottomNavigation = () => {
                               pathname === "/" ? "text-[#a12fda] font-bold" : "text-gray-500"
                          }`}
                     >
-                         <HomeIcon className="w-5" />
+                         <AiFillHome className="w-6" />
                          <span>Home</span>
                     </Link>
 
@@ -30,7 +32,7 @@ const BottomNavigation = () => {
                               pathname === "/order-now" ? "text-[#a12fda] font-bold" : "text-gray-500"
                          }`}
                     >
-                         <IoFastFood className='w-5' />
+                         <IoFastFood className='w-6 h-6' />
                          <span>Order Now</span>
                     </Link>
 
@@ -41,7 +43,7 @@ const BottomNavigation = () => {
                               pathname === "/cart" ? "text-[#a12fda] font-bold" : "text-gray-500"
                          }`}
                     >
-                         <ShoppingBagIcon className="w-5" />
+                         <FaCartShopping className="w-5 h-5" />
                          <span>Cart</span>
                     </Link>
 
@@ -52,7 +54,7 @@ const BottomNavigation = () => {
                               pathname === "/my-account" ? "text-[#a12fda] font-bold" : "text-gray-500"
                          }`}
                     >
-                         <UserCircleIcon className="w-5" />
+                         <FaUserCircle className="w-5 h-5" />
                          <span>My Account</span>
                     </Link>
                </div>

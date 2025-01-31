@@ -1,8 +1,7 @@
 import { fetchStoresAndProducts } from "@/lib/api"; 
 import { Store, Product } from "@/lib/definitions";
 import Image from "next/image";
-import AddToCartButton from "@/components/ui/AddToCartButton";
-
+import AddToCartButton from "@/components/ui/storefront/addToCartButton";
 
 
 
