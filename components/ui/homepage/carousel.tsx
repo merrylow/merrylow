@@ -17,8 +17,6 @@ type CarouselPlugin = UseCarouselParameters[1]
 
 type CarouselProps = {
   images: { src: string; alt: string }[];
-  imgHeight: string,
-  carouselHeight: string,
   opts?: CarouselOptions
   plugins?: CarouselPlugin
   orientation?: "horizontal" | "vertical"
@@ -53,8 +51,6 @@ const Carousel = React.forwardRef<
   (
     {
       images,
-      imgHeight,
-      carouselHeight,
       orientation = "horizontal",
       opts,
       setApi,
@@ -140,8 +136,6 @@ const Carousel = React.forwardRef<
           canScrollPrev,
           canScrollNext,
           images,
-          imgHeight,
-          carouselHeight,
         }}
       >
         <div
@@ -165,7 +159,7 @@ const CarouselContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => {
-  const { carouselRef, orientation, images, imgHeight, carouselHeight } = useCarousel()
+  const { carouselRef, orientation, images } = useCarousel()
 
   return (
     <div ref={carouselRef} className="overflow-hidden">
@@ -174,7 +168,6 @@ const CarouselContent = React.forwardRef<
         className={cn(
           "flex",
           orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
-          `${carouselHeight}`
         )}
         {...props}
       >
@@ -183,9 +176,7 @@ const CarouselContent = React.forwardRef<
             <img
               src={image.src}
               alt={image.alt}
-              className={`object-cover w-full ${imgHeight}`}
-              // width={24}
-              // height={20}
+              className={'object-cover'}
             />
           </CarouselItem>
         ))}

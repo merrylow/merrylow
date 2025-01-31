@@ -1,60 +1,70 @@
-'use server'
+"use server";
+
 import { fetchStoresAndProducts } from "@/lib/api";
-import {
-     Carousel,
-     CarouselContent,
-     CarouselItem,
-} from "@/components/ui/homepage/carousel"
-// import Autoplay from "embla-carousel-autoplay"
-// import Link from "next/link";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/homepage/carousel";
 import Image from "next/image";
 import Link from "next/link";
-
-
-
+import FuzzySet from "fuzzyset";
+import { ChevronRightIcon } from "@heroicons/react/16/solid";
 
 export default async function StorefrontPreviews() {
      const { stores, products } = await fetchStoresAndProducts();
-     // console.log(stores);
 
      return (
-          <section className="h-full">
-               <ul className="w-full h-full space-y-10">
+          <section className="w-full h-full px-4 mb-36">
+               <ul className="w-full space-y-10">
                     {stores.map(async (store) => {
-                         const menuItems = products.filter(
-                              (product) =>
-                                   product.store?.shop_name?.trim().toLowerCase() ===
-                                   store.name?.trim().toLowerCase()
-                         );
+                         const menuItems = products.filter((product) => {
+                              const normalizedProductName = product.store?.shop_name?.trim().toLowerCase();
+                              const normalizedStoreName = store.name?.trim().toLowerCase();
 
+                              if (!normalizedProductName || !normalizedStoreName) {
+                                   return false;
+                              }
 
-                         // Filter out duplicate images based on URL
+                              const storeSet = FuzzySet([normalizedStoreName]);
+                              const match = storeSet.get(normalizedProductName);
+
+                              return match && match[0][0] >= 0.8;
+                         });
+
                          const uniqueImages = menuItems.reduce((unique: any[], product: any) => {
-                              const imageUrl = product.images[0]?.src; // Get the image URL of the product
-
-                              if (imageUrl && !unique.some(item => item.src === imageUrl)) {
+                              const imageUrl = product.images[0]?.src;
+                              if (imageUrl && !unique.some((item) => item.src === imageUrl)) {
                                    unique.push({ src: imageUrl, name: product.name });
                               }
-                              
                               return unique;
                          }, []);
 
                          return (
-                              <li key={store.id} className="h-48 flex flex-col spacing-y-36">
-                                   <div className="w-full h-full">
-                                        <section>
-                                             <p>{store.name}</p>
+                              <li key={store.id} className="flex flex-col">
+                                   <Link href={`/storefront/${store.id}`} className="w-full space-y-2">
+                                        <section className="flex items-center text-[#b532f7]">
+                                             <p className="text-md font-semibold">{store.name}</p>
+                                             <ChevronRightIcon className="w-5" />
                                         </section>
 
-                                        <section className="carousel">
-                                             <div className="carousel-container">
-                                                  <Carousel images={uniqueImages} imgHeight='h-full' carouselHeight="w-[35%] h-[200px]" plugins={[]}> 
-                                                       <CarouselContent className="" />
-                                                  </Carousel>
-                                             </div>
+                                        {/* Carousel Wrapper */}
+                                        <section className="mt-3 h-64 overflow-hidden border">
+                                             <Carousel images={uniqueImages} className="w-full max-w-full overflow-hidden border border-green-600">
+                                                  <CarouselContent className="flex gap-4 overflow-x-auto scrollbar-hide">
+                                                       {uniqueImages.map((image) => (
+                                                            <CarouselItem 
+                                                                 key={image.src} 
+                                                                 className="relative flex-[0_0_33.33%] h-48 md:h-64 border">
+                                                                 <Image
+                                                                      src={image.src}
+                                                                      alt={image.name}
+                                                                      className="w-full h-full object-cover rounded-lg border border-red-600"
+                                                                      width={100}
+                                                                      height={100}
+                                                                 />
+                                                            </CarouselItem>
+                                                       ))}
+                                                  </CarouselContent>
+                                             </Carousel>
                                         </section>
-                                   </div>
-                              
+                                   </Link>
                               </li>
                          );
                     })}
