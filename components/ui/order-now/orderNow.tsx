@@ -57,7 +57,10 @@ export default async function OrderNow({ stores, products }: { stores: Store[], 
                                                   <section className="h-[95%] flex flex-col justify-center space-y-4">
                                                        <div>
                                                             <p className="text-[14.5px]">{menuItem.name}</p>
-                                                            <p>c{menuItem.price}.00</p>
+                                                            <p>
+                                                                 <span>{menuItem.currency}</span>
+                                                                 {menuItem.price}.00
+                                                            </p>
                                                        </div>
                                                        <AddToCartButton product={menuItem} />
                                                   </section>

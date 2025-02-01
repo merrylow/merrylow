@@ -1,11 +1,11 @@
-import { Product, Store } from "./definitions";
+import { Product, Store, Order} from "./definitions";
 
 
 
-export async function fetchStoresAndProducts(): Promise<{ 
+const fetchStoresAndProducts = async (): Promise<{ 
      stores: Store[]; 
      products: Product[] ;
-}> {
+}> => {
      const BASE_URL = process.env.NODE_ENV === "production"
      ? "https://merrylow.vercel.app"
      : "http://localhost:3000";
@@ -25,3 +25,36 @@ export async function fetchStoresAndProducts(): Promise<{
           return { stores: [], products: [] }; 
      }
 }
+
+
+const createOrder = async (order: Order) => {
+     const BASE_URL = process.env.NODE_ENV === "production"
+     ? "https://merrylow.vercel.app"
+     : "http://localhost:3000";
+
+     try {
+          const orderResponse = await fetch(`${BASE_URL}/api/orders`, {
+               method: "POST",
+               headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Basic ${btoa(
+                    `${process.env.WC_CONSUMER_KEY}:${process.env.WC_CONSUMER_SECRET}`
+               )}`,
+               },
+               body: JSON.stringify(order),
+          });
+
+          if (!orderResponse.ok) {
+               throw new Error(`Error: ${orderResponse.status} - ${orderResponse.statusText}`);
+          }
+     
+          return await orderResponse.json();
+
+     } catch(error: any) {
+          console.error("Error creating order:", error);
+          throw new Error(error.message || "Failed to create order");
+     }
+}
+
+
+export { fetchStoresAndProducts, createOrder }
