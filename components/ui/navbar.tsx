@@ -32,7 +32,7 @@ export default function Navbar() {
      useEffect(() => {
           setIsOpen(false);
           window.scrollTo({ top: 0, behavior: "smooth" });
-     }, [pathname]); // Runs whenever the pathname changes
+     }, [pathname]); 
 
 
 

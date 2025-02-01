@@ -5,7 +5,7 @@ import AddToCartButton from "@/components/ui/storefront/addToCartButton";
 
 
 
-export default async function StorefrontPage({ params }: { params: Promise<{ id: string }> }) {
+const StorefrontPage = async ({ params }: { params: Promise<{ id: string }> }) => {
      const storeId = Number((await params).id);
      if (isNaN(storeId)) {
           return <div>Invalid Store ID</div>;
@@ -73,3 +73,5 @@ export default async function StorefrontPage({ params }: { params: Promise<{ id:
           </section>
      );
 }
+
+export default StorefrontPage

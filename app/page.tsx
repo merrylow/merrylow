@@ -3,12 +3,11 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/homepage/carousel"
-import Autoplay from "embla-carousel-autoplay"
 import StorefrontPreviews from "@/components/ui/homepage/storefrontPreview"
 
 
 
-export default async function Home() {
+const Home = async () => {
   const images = [
     { src: '/slider-images/5-cedis-per-delivery.png', alt: "Image 1" },
     { src: '/slider-images/Free-Delivery.png', alt: "Image 2" },
@@ -20,7 +19,7 @@ export default async function Home() {
     <main className="container mx-auto flex flex-col justify-between mt-5 space-y-20">
       <div className="container w-full h-full">
         {/* slider */}
-        <section className="min-w-[96%] w-[96%] mx-auto border-2 rounded-[25px] shadow-xl">
+        <section className="min-w-[96%] w-[96%] mx-auto border-2 rounded-[25px] shadow-2xl">
           <Carousel images={images} className="border border-red-700 rounded-[25px]" opts={{
             align: 'start',
             loop: true,
@@ -48,3 +47,4 @@ export default async function Home() {
   );
 }
 
+export default Home

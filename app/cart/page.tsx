@@ -6,7 +6,7 @@ import Image from "next/image";
 import Loading from "../loading";
 
 
-export default function CartPage() {
+const CartPage = () => {
      const { cart, removeFromCart } = useCartContext();
 
      const [isHydrated, setIsHydrated] = useState(false);
@@ -44,3 +44,5 @@ export default function CartPage() {
      </div>
      );
 }
+
+export default CartPage

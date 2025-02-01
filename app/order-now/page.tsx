@@ -3,7 +3,7 @@ import Link from "next/link";
 import { fetchStoresAndProducts } from "@/lib/api";
 
 
-export default async function OrderNowPage() {
+const OrderNowPage = async () => {
      const { stores, products } = await fetchStoresAndProducts();
      
 
@@ -27,3 +27,5 @@ export default async function OrderNowPage() {
           </section>
      );
 }
+
+export default OrderNowPage
