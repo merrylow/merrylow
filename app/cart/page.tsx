@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useCartContext } from "@/lib/contexts/CartContext";
 import Image from "next/image";
-import Loading from "./loading";
+import Loading from "../loading";
 
 
 export default function CartPage() {

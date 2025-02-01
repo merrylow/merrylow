@@ -18,7 +18,7 @@ const BottomNavigation = () => {
                     <Link
                          href="/"
                          className={`text-[14px] flex flex-col items-center ${
-                              pathname === "/" ? "text-[#a12fda] font-bold" : "text-gray-500"
+                              pathname === "/" ? "text-[#a12fda] font-semibold" : "text-gray-500"
                          }`}
                     >
                          <AiFillHome className="w-6 h-6" />
@@ -29,7 +29,7 @@ const BottomNavigation = () => {
                     <Link
                          href="/order-now"
                          className={`text-[14px] flex flex-col items-center ${
-                              pathname === "/order-now" ? "text-[#a12fda] font-bold" : "text-gray-500"
+                              pathname === "/order-now" ? "text-[#a12fda]" : "text-gray-500"
                          }`}
                     >
                          <IoFastFood className='w-6 h-6' />
@@ -40,7 +40,7 @@ const BottomNavigation = () => {
                     <Link
                          href="/cart"
                          className={`text-[14px] flex flex-col items-center ${
-                              pathname === "/cart" ? "text-[#a12fda] font-bold" : "text-gray-500"
+                              pathname === "/cart" ? "text-[#a12fda]" : "text-gray-500"
                          }`}
                     >
                          <FaCartShopping className="w-5 h-5" />
@@ -51,7 +51,7 @@ const BottomNavigation = () => {
                     <Link
                          href="/my-account"
                          className={`text-[14px] flex flex-col items-center ${
-                              pathname === "/my-account" ? "text-[#a12fda] font-bold" : "text-gray-500"
+                              pathname === "/my-account" ? "text-[#a12fda]" : "text-gray-500"
                          }`}
                     >
                          <FaUserCircle className="w-5 h-5" />
