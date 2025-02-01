@@ -21,11 +21,10 @@ export default async function Home() {
       <div className="container w-full h-full">
         {/* slider */}
         <section className="min-w-[96%] w-[96%] mx-auto border-2 rounded-[25px] shadow-xl">
-          <Carousel images={images} className="border border-red-700 rounded-[25px]" plugins={[
-            Autoplay({
-              delay: 2000,
-            }),
-          ]}> 
+          <Carousel images={images} className="border border-red-700 rounded-[25px]" opts={{
+            align: 'start',
+            loop: true,
+          }}> 
             <CarouselContent />
           </Carousel>
 

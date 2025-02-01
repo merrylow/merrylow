@@ -46,7 +46,7 @@ export default async function StorefrontPreviews() {
 
                                         {/* Carousel Wrapper */}
                                         <section className="mt-3 h-64 overflow-hidden">
-                                             <Carousel images={uniqueImages} className="w-full max-w-full overflow-hidden">
+                                             <Carousel images={uniqueImages} className="w-full max-w-full overflow-hidden" opts={{ align: 'start', loop: true }} autoplay={false}>
                                                   <CarouselContent className="flex gap-2 overflow-x-auto scrollbar-hide flex-nowrap">
                                                        {uniqueImages.map((image) => (
                                                             <CarouselItem 
