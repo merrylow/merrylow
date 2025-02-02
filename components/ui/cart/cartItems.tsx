@@ -36,13 +36,15 @@ const CartItems = () => {
           };
      };
 
+     if(cart.length === 0) {
+          <EmptyCart />
+     }
+
      return (
           <section className="p-4 mb-24">
                <ul>
                     {
-                         cart.length === 0 
-                         ?  <EmptyCart />
-                         : cart.map((cartItem) => (
+                         cart.map((cartItem) => (
                               <li key={cartItem.id} className="border p-2 mb-2">
                                    <h2 className="text-lg">{cartItem.name}</h2>
                                    <p>Status: {cartItem['order-status']}</p>

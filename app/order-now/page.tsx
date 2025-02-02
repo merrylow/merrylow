@@ -1,11 +1,13 @@
-import OrderNow from "@/components/ui/order-now/orderNow";
 import Link from "next/link";
+import { Suspense, useState } from "react";
 import { fetchStoresAndProducts } from "@/lib/api";
+import OrderNow from "@/components/ui/order-now/orderNow";
+import SearchSection from "@/components/ui/order-now/searchSection";
 
 
 const OrderNowPage = async () => {
+     // const query = (await searchParams).query
      const { stores, products } = await fetchStoresAndProducts();
-     
 
      return (
           <section className="min-w-md w-[95%] mt-5 mx-auto">
@@ -20,8 +22,12 @@ const OrderNowPage = async () => {
                     }
                </div>
 
-               <div className="w-[90%] min-w-sm mx-auto mt-10">
-                    {/* <p>Order now</p> */}
+
+               {/* client component for search functionalty */}
+               <SearchSection />
+
+               <div>
+                    {/* <p>Order now</p>  */}
                     <OrderNow stores={stores} products={products} />
                </div>
           </section>

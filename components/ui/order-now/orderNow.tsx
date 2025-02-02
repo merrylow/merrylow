@@ -5,6 +5,7 @@ import AddToCartButton from "../storefront/addToCartButton";
 
 
 export default async function OrderNow({ stores, products }: { stores: Store[], products: Product[] }) {
+
      return (
           <section className="mb-56">
                <ul className="space-y-16">

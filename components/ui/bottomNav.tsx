@@ -18,7 +18,7 @@ const BottomNavigation = () => {
                     <Link
                          href="/"
                          className={`text-[14px] flex flex-col items-center ${
-                              pathname === "/" ? "text-[#a12fda] font-semibold" : "text-gray-500"
+                              pathname === "/" ? "text-[#a12fda]" : "text-gray-500"
                          }`}
                     >
                          <AiFillHome className="w-6 h-6" />
