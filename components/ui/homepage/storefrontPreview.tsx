@@ -6,6 +6,7 @@ import Link from "next/link";
 import FuzzySet from "fuzzyset";
 import { ChevronRightIcon } from "@heroicons/react/16/solid";
 
+
 export default async function StorefrontPreviews() {
      const { stores, products } = await fetchStoresAndProducts();
      // console.log(stores);
@@ -37,7 +38,7 @@ export default async function StorefrontPreviews() {
                          }, []);
 
                          return (
-                              <li key={store.id} className="flex flex-col">
+                              <li key={store.id} className="flex flex-col shadow-xl">
                                    <Link href={`/storefront/${store.id}`} className="w-full space-y-2">
                                         <section className="flex items-center text-[#b532f7]">
                                              <p className="text-md font-semibold">{store.name}</p>

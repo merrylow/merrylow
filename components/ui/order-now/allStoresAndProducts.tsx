@@ -4,7 +4,15 @@ import Link from "next/link";
 import AddToCartButton from "../storefront/addToCartButton"; 
 
 
-export default async function OrderNow({ stores, products }: { stores: Store[], products: Product[] }) {
+const AllStoresAndProducts = ({ stores, products, query } : { stores: Store[], products: Product[], query: string }) => {
+     if (query && products.length === 0) {
+          return (
+               <section className="mb-56 text-center mt-10">
+                    <p className="text-lg font-semibold text-gray-600">"{query}" not found</p>
+               </section>
+          );
+     }
+
 
      return (
           <section className="mb-56">
@@ -15,22 +23,10 @@ export default async function OrderNow({ stores, products }: { stores: Store[], 
                               product.store?.shop_name?.trim().toLowerCase() ===
                               store.name?.trim().toLowerCase()
                          );
-                         
-                         // const menuItems = products.filter((product) => {
-                         //      const normalizedProductName = product.store?.shop_name?.trim().toLowerCase();
-                         //      const normalizedStoreName = store.name?.trim().toLowerCase();
-                              
-                         //      if (!normalizedProductName || !normalizedStoreName) {
-                         //           return false; 
-                         //      }
-                              
-                         //      const storeSet = FuzzySet([normalizedStoreName]); 
-                         //      const match = storeSet.get(normalizedProductName); 
-                              
-                         //      return match && match[0][0] >= 0.8; // Adjust threshold as needed
-                         // });
-                         
-                         
+
+                         // If filtering by search and this store has no matches, don't display it
+                         if (query && menuItems.length === 0) return null;
+               
 
                          return (
 
@@ -75,3 +71,5 @@ export default async function OrderNow({ stores, products }: { stores: Store[], 
           </section>
      );
 }
+
+export default AllStoresAndProducts;

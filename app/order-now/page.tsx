@@ -1,7 +1,5 @@
 import Link from "next/link";
-import { Suspense, useState } from "react";
 import { fetchStoresAndProducts } from "@/lib/api";
-import OrderNow from "@/components/ui/order-now/orderNow";
 import SearchSection from "@/components/ui/order-now/searchSection";
 
 
@@ -24,12 +22,8 @@ const OrderNowPage = async () => {
 
 
                {/* client component for search functionalty */}
-               <SearchSection />
+               <SearchSection stores={stores} products={products} />
 
-               <div>
-                    {/* <p>Order now</p>  */}
-                    <OrderNow stores={stores} products={products} />
-               </div>
           </section>
      );
 }
