@@ -22,8 +22,8 @@ const SearchSection = ({ stores, products } : { stores: Store[], products: Produ
 
 
      return (
-          <div className="w-[90%] min-w-sm mx-auto mt-10">
-               <div className="w-[50%] mx-auto relative">
+          <div className="w-[95%] min-w-sm mx-auto mt-5">
+               <div className="w-[65%] mx-auto relative">
                     <SearchBar query={query} onSearch={setQuery} />
 
                     <button type="button" title="Reset button" onClick={handleReset} className={ query.length > 0 ? 'block absolute top-0 right-8' : 'top-0 right-8 absolute hidden'}>

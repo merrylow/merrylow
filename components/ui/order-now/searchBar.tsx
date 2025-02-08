@@ -14,7 +14,7 @@ const SearchBar = ({ query, onSearch } : { onSearch: (query: string) => void, qu
                     value={query} // Controlled component
                     onChange={(e) => onSearch(e.target.value)}
                     aria-label="search-button"
-                    className="w-[100%] h-[30px] rounded-2xl pl-3 border border-slate-600"
+                    className="w-[100%] h-[30px] rounded-2xl pl-3 border border-slate-400"
                /> 
           </div>
      );
