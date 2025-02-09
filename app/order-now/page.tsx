@@ -9,9 +9,8 @@ const OrderNowPage = async () => {
      const { stores, products } = await fetchStoresAndProducts();
 
      return (
-          <section className="min-w-lg w-[100%] mt-5 mx-auto">
-
-               <div className="flex flex-col items-center min-w-sm w-[100%] h-auto mx-auto mt-10">
+          <section className="min-w-lg w-[100%] mx-auto">
+               <div className="flex flex-col items-center min-w-sm w-[100%] h-auto mx-auto mt-5">
                     <Dropdown stores={stores} />
                </div>
 
