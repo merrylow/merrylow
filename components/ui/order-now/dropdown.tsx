@@ -26,18 +26,18 @@ const Dropdown = ({ stores } : { stores: Store[] }) => {
      }, []);
 
      return (
-     <div className="relative w-[95%] flex justify-center space-y-10" ref={dropdownRef}>
+     <div className="relative w-[100%] flex justify-center space-y-10" ref={dropdownRef}>
           <button
           onClick={() => setIsOpen(!isOpen)}
           className="min-w-[80%] w-[85%] bg-gray-100 text-gray-800 py-2 px-4 rounded-lg text-[14.6px] text-center shadow-md"
           >
                Ericas and more...
-               <span className="inline-block pl-1 relative top-[2.3px]">
+               <span className="inline-block pl-2 relative top-[2.3px]">
                     <TiArrowSortedDown className="" />
                </span>
           </button>
           {isOpen && (
-          <ul className="absolute w-full h-64 bg-white shadow-md rounded-lg z-10 overflow-y-scroll border border-gray-200">
+          <ul className="absolute w-[85%] h-64 bg-white shadow-md rounded-[6px] z-10 overflow-y-scroll border border-gray-200 transition-all duration-1000">
                {stores.map((item) => (
                     <li key={item.id}>
                          <Link

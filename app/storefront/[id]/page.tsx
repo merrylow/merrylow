@@ -35,13 +35,13 @@ const StorefrontPage = async ({ params }: { params: Promise<{ id: string }> }) =
 
 
      return (
-          <section className="p-4 mb-4 mt-4">
+          <section className="w-[95%] mx-auto p-4 mb-4 mt-4">
                <div>
                     <h1 className="text-3xl text-center font-bold">{store.name}</h1>
                     <div className="w-8 h-[1.6px] bg-[#a12fda] mt-1 mx-auto"></div>
                </div>
 
-               <div className="w-[85%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 mb-20 mx-auto">
+               <div className="w-[100%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 mb-20 mx-auto">
                     {
                          menuItems.map((menuItem) => {
                               return (

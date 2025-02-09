@@ -9,17 +9,10 @@ const OrderNowPage = async () => {
      const { stores, products } = await fetchStoresAndProducts();
 
      return (
-          <section className="min-w-md w-[95%] mt-5 mx-auto">
+          <section className="min-w-lg w-[100%] mt-5 mx-auto">
 
-               <div className="flex flex-col items-center min-w-sm w-[90%] h-auto mx-auto mt-10">
+               <div className="flex flex-col items-center min-w-sm w-[100%] h-auto mx-auto mt-10">
                     <Dropdown stores={stores} />
-                    {/* {
-                         stores.map((store) => (
-                              <div key={store.id} className="border-b-[1.5px] w-[95%] mx-auto pb-1">
-                                   <Link href={`#store-${store.id}`} className="hover:text-[#a12fda]">{store.name}</Link>
-                              </div>
-                         ))
-                    } */}
                </div>
 
 
